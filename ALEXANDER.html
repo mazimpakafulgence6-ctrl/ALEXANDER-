@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Alexander International School | Mbarara, Uganda</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefcf5;
+      color: #1e2a2f;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header & navigation */
+    header {
+      background: #0b3b2f;
+      color: white;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .logo p {
+      font-size: 0.85rem;
+      color: #d9e3a5;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: 0.2s;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover, .nav-links a.active-page {
+      border-bottom-color: #f4c542;
+      color: #fae67a;
+    }
+
+    /* buttons */
+    .btn {
+      display: inline-block;
+      background: #f0a500;
+      color: #1e3a2f;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.2s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn i {
+      margin-right: 8px;
+    }
+
+    .btn:hover {
+      background: #e09200;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #f0a500;
+      color: #1e3a2f;
+    }
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(105deg, #eef3e6 0%, #f6f0e0 100%);
+      padding: 70px 0 60px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #1e5629;
+      line-height: 1.2;
+    }
+
+    .hero-text .tagline {
+      font-size: 1.3rem;
+      margin: 20px 0 16px;
+      color: #2c4b32;
+      font-weight: 500;
+    }
+
+    .hero-image {
+      flex: 1;
+      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop') no-repeat center center/cover;
+      border-radius: 48px 24px 48px 24px;
+      min-height: 320px;
+      box-shadow: 20px 20px 0 #c7d6b1;
+    }
+
+    /* sections */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid #e9e2cf;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #1d542c;
+      margin-bottom: 48px;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      width: 70px;
+      height: 4px;
+      background: #f0a500;
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      border-radius: 4px;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      flex: 1;
+      min-width: 240px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #ede7d4;
+    }
+
+    .card i {
+      font-size: 2.8rem;
+      color: #f0a500;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 16px;
+      color: #2e6737;
+    }
+
+    /* about styles */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-text {
+      flex: 1.5;
+    }
+    .about-stats {
+      flex: 1;
+      background: #eef1e2;
+      border-radius: 32px;
+      padding: 32px;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #1d6e2f;
+    }
+
+    /* feedback grid */
+    .feedback-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .feedback-card {
+      background: #ffffffea;
+      border-radius: 32px;
+      padding: 28px 24px;
+      width: 320px;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.04);
+      transition: 0.2s;
+      border: 1px solid #f6efdb;
+    }
+    .stars {
+      color: #ffb347;
+      margin-bottom: 16px;
+    }
+    .feedback-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .feedback-author {
+      font-weight: 700;
+      color: #0b5e2e;
+    }
+
+    /* Application form styles */
+    .form-container {
+      background: white;
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0e8d8;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1e462e;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd2bc;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: #fefcf7;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: #f0a500;
+      box-shadow: 0 0 0 3px rgba(240,165,0,0.2);
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .form-row .form-group {
+      flex: 1;
+    }
+    .submit-message {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 28px;
+      text-align: center;
+      font-weight: 500;
+      display: none;
+    }
+    .submit-message.success {
+      background: #e0f2e9;
+      color: #1a6e3b;
+      border-left: 5px solid #2e8b57;
+      display: block;
+    }
+    .submit-message.error {
+      background: #ffe3db;
+      color: #b13e2d;
+      border-left: 5px solid #e34d2b;
+      display: block;
+    }
+
+    /* contact bar */
+    .contact-bar {
+      background: #1f3e32;
+      color: white;
+      padding: 48px 0;
+      text-align: center;
+    }
+    .phone-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: #f0a50020;
+      display: inline-block;
+      padding: 6px 24px;
+      border-radius: 60px;
+    }
+    footer {
+      background: #10261f;
+      padding: 28px 0;
+      text-align: center;
+      color: #bcd0ba;
+    }
+    .social-icons a {
+      color: #cfdaaf;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    .social-icons a:hover {
+      color: #f5bc70;
+    }
+    @media (max-width: 780px) {
+      .container { padding: 0 24px; }
+      .hero-text h2 { font-size: 2rem; }
+      .phone-number { font-size: 1.5rem; }
+      .form-container { padding: 24px; }
+    }
+    .page { display: none; }
+    .page.active-page-section { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <h1><i class="fas fa-graduation-cap"></i> ALEXANDER <span style="font-weight:500">INT'L SCHOOL</span></h1>
+      <p>Mbarara, Uganda | Excellence in Education</p>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" data-page="home" class="nav-link active-page"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#" data-page="about" class="nav-link"><i class="fas fa-school"></i> About Us</a></li>
+      <li><a href="#" data-page="feedback" class="nav-link"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+      <li><a href="#" data-page="apply" class="nav-link"><i class="fas fa-file-alt"></i> Apply Now</a></li>
+      <li><a href="#" data-page="contact" class="nav-link"><i class="fas fa-phone-alt"></i> Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page active-page-section">
+    <div class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h2>Nurturing Bright Futures<br> Since 2005</h2>
+          <div class="tagline"><i class="fas fa-chalkboard-user"></i> Nursery · Primary · Secondary</div>
+          <p>Alexander International School in Mbarara offers holistic education blending academics, sports, and values. We empower young minds from nursery through secondary with a global perspective rooted in Ugandan excellence.</p>
+          <a href="#" data-page="apply" class="btn nav-link"><i class="fas fa-pen-alt"></i> Apply for Admission</a>
+          <a href="#" data-page="contact" class="btn btn-outline nav-link" style="margin-left:12px;"><i class="fas fa-phone"></i> Contact Us</a>
+        </div>
+        <div class="hero-image"></div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <h2 class="section-title">Why Alexander?</h2>
+        <div class="cards-grid">
+          <div class="card"><i class="fas fa-child"></i><h3>Nursery</h3><p>Play-based learning, safe environment, early literacy & numeracy.</p></div>
+          <div class="card"><i class="fas fa-book-open"></i><h3>Primary</h3><p>Competence-based curriculum, STEM, arts, and character building.</p></div>
+          <div class="card"><i class="fas fa-flask"></i><h3>Secondary</h3><p>UCE & UACE programs, science labs, career guidance & clubs.</p></div>
+          <div class="card"><i class="fas fa-globe-africa"></i><h3>Global Outlook</h3><p>Cultural exchange, ICT skills, international exposure.</p></div>
+        </div>
+      </div>
+    </section>
+    <section style="background:#f9f5ea;">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items:center;">
+          <div style="flex:1;"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=350&fit=crop" alt="Students in class" style="width:100%; border-radius: 32px; box-shadow: 10px 10px 0 #cbd8af;"></div>
+          <div style="flex:1;"><h3 style="font-size: 1.8rem; color:#154f28;">Modern campus in Mbarara City</h3><p style="margin:20px 0">Our school is located in a serene environment with equipped classrooms, a library, sports fields, and science labs. We serve families across Mbarara and beyond, delivering quality education at affordable fees.</p><i class="fas fa-map-marker-alt" style="color:#e07c1f;"></i> Mbarara - Rwebikoona Road, Plot 24</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT US PAGE -->
+  <div id="about-page" class="page">
+    <section style="background: #fdf9ef;">
+      <div class="container">
+        <h2 class="section-title">About Alexander International School</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p><strong>Alexander International School</strong> was founded with a vision to bridge quality education and moral integrity in Mbarara, Uganda. We offer a seamless educational journey from Nursery through Primary to Secondary (O & A Level). Our curriculum blends the National Curriculum of Uganda with international best practices.</p>
+            <p>We believe every child has unique potential. With small class sizes, well-trained teachers, and modern teaching aids, we foster critical thinking, creativity, and leadership.</p>
+            <p><i class="fas fa-check-circle" style="color:#f0a500;"></i> Fully registered by Ministry of Education <br>
+            <i class="fas fa-check-circle" style="color:#f0a500;"></i> Experienced faculty & low student-teacher ratio <br>
+            <i class="fas fa-check-circle" style="color:#f0a500;"></i> State of the art science and computer labs <br>
+            <i class="fas fa-check-circle" style="color:#f0a500;"></i> Annual educational tours & career expos</p>
+            <a href="#" data-page="apply" class="btn nav-link" style="margin-top:15px;"><i class="fas fa-file-signature"></i> Apply Online</a>
+          </div>
+          <div class="about-stats">
+            <div class="stat-number">15+</div><p>Years of Excellence</p>
+            <div class="stat-number">650+</div><p>Students Enrolled</p>
+            <div class="stat-number">45+</div><p>Qualified Staff</p>
+            <div class="stat-number">7+</div><p>Sports & Clubs</p>
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=200&h=120&fit=crop" style="width:100%; border-radius: 24px; margin-top: 24px;" alt="School event">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h3 style="font-size: 2rem; color:#1d542c;">Our Core Values</h3>
+        <div style="display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px;">
+          <div style="background:#ffffff; border-radius: 28px; padding: 20px; flex:1; text-align:center;"><i class="fas fa-heart" style="font-size: 2.2rem; color:#c45d2e;"></i><h4>Respect</h4><p>Honoring diversity and fostering kindness.</p></div>
+          <div style="background:#ffffff; border-radius: 28px; padding: 20px; flex:1; text-align:center;"><i class="fas fa-lightbulb" style="font-size: 2.2rem; color:#f0a500;"></i><h4>Innovation</h4><p>Encouraging curiosity and creativity.</p></div>
+          <div style="background:#ffffff; border-radius: 28px; padding: 20px; flex:1; text-align:center;"><i class="fas fa-handshake" style="font-size: 2.2rem; color:#307551;"></i><h4>Integrity</h4><p>Building strong character and honesty.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FEEDBACK PAGE -->
+  <div id="feedback-page" class="page">
+    <section style="background: #fffbf0;">
+      <div class="container">
+        <h2 class="section-title">What Parents & Students Say</h2>
+        <p style="margin-bottom: 40px;">Real experiences from our Alexander family — nurturing growth together.</p>
+        <div class="feedback-grid">
+          <div class="feedback-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="feedback-text">"Alexander International gave my daughter confidence and top grades. The teachers genuinely care! Nursery section is amazing."</div><div class="feedback-author">— Mrs. Nambi Grace (Parent)</div></div>
+          <div class="feedback-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><div class="feedback-text">"My son transitioned from primary to secondary seamlessly. The science department is well equipped."</div><div class="feedback-author">— Mr. Ssekandi Robert</div></div>
+          <div class="feedback-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="feedback-text">"I love the school culture; my child's reading improved greatly in nursery! Highly recommend."</div><div class="feedback-author">— Ms. Ajambo Catherine</div></div>
+          <div class="feedback-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="feedback-text">"Alexander Secondary offers great career guidance. I am now pursuing engineering."</div><div class="feedback-author">— Alvin Twebaze (Alumnus)</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- APPLICATION FORM PAGE -->
+  <div id="apply-page" class="page">
+    <section style="background: #faf7f0;">
+      <div class="container">
+        <h2 class="section-title">Student Application Form</h2>
+        <p>Apply for admission at Alexander International School (Nursery, Primary, or Secondary). Fill the details below and our admissions team will contact you.</p>
+        <div class="form-container" style="margin-top: 40px;">
+          <form id="admissionForm">
+            <div class="form-row">
+              <div class="form-group"><label>Full Name *</label><input type="text" id="fullName" required placeholder="e.g., Atukunda Brian"></div>
+              <div class="form-group"><label>Date of Birth *</label><input type="date" id="dob" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Parent/Guardian Name *</label><input type="text" id="parentName" required placeholder="e.g., Mary K"></div>
+              <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" required placeholder="0768844641"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="parent@example.com"></div>
+              <div class="form-group"><label>Applying for Grade/Class *</label>
+                <select id="grade" required>
+                  <option value="">Select</option>
+                  <option>Nursery (Age 3-4)</option><option>Pre-Primary (Age 5)</option>
+                  <option>Primary 1</option><option>Primary 2</option><option>Primary 3</option><option>Primary 4</option>
+                  <option>Primary 5</option><option>Primary 6</option><option>Primary 7</option>
+                  <option>Secondary S.1</option><option>Secondary S.2</option><option>Secondary S.3</option><option>Secondary S.4</option>
+                  <option>Secondary S.5</option><option>Secondary S.6</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label>Previous School (if any)</label><input type="text" id="prevSchool" placeholder="Name of last school attended"></div>
+            <div class="form-group"><label>Additional Message / Special Requirements</label><textarea rows="3" id="message" placeholder="Any remarks, medical conditions, or questions..."></textarea></div>
+            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Submit Application</button>
+            <div id="formFeedback" class="submit-message"></div>
+          </form>
+          <p style="margin-top: 24px; font-size: 0.85rem; color:#5f5a48;"><i class="fas fa-lock"></i> Your data is secure. After submission, we’ll call you within 2 working days. For urgent queries call 0768844641</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page">
+    <div class="contact-bar">
+      <div class="container">
+        <h2 style="color:white;"><i class="fas fa-map-pin"></i> Connect with Alexander</h2>
+        <div class="contact-info" style="margin:20px 0; font-size:1.2rem;">
+          <i class="fas fa-phone-alt"></i> Call / WhatsApp: <strong class="phone-number">0768844641</strong>
+        </div>
+        <div class="contact-info"><i class="fas fa-envelope"></i> info@alexanderintschool.ug</div>
+        <div class="contact-info"><i class="fas fa-location-dot"></i> Plot 24, Rwebikoona Road, Mbarara City, Uganda</div>
+        <div class="social-icons"><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div>
+      </div>
+    </div>
+    <section style="background: #fff6e8;">
+      <div class="container">
+        <div style="display:flex; flex-wrap:wrap; gap: 40px; align-items: center;">
+          <div style="flex:1;"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=350&fit=crop" style="width:100%; border-radius: 36px;" alt="School front"></div>
+          <div style="flex:1;"><h3>Office Hours</h3><p>Monday - Friday: 8:00 AM – 5:00 PM<br>Saturday: 9:00 AM – 1:00 PM<br>Admissions open for Nursery, Primary & Secondary. Visit us for a tour!</p><a href="#" class="btn" onclick="window.location.href='tel:0768844641'"><i class="fas fa-phone"></i> Call 0768844641</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Alexander International School – Mbarara, Uganda. Nurturing leaders since 2005 | Nursery · Primary · Secondary</p>
+    <p><i class="fas fa-phone"></i> 0768844641  |  <i class="fas fa-envelope"></i> admissions@alexanderintl.ug</p>
+  </div>
+</footer>
+
+<script>
+  // page navigation
+  const pages = {
+    home: document.getElementById('home-page'),
+    about: document.getElementById('about-page'),
+    feedback: document.getElementById('feedback-page'),
+    apply: document.getElementById('apply-page'),
+    contact: document.getElementById('contact-page')
+  };
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function showPage(pageId) {
+    Object.values(pages).forEach(p => { if(p) p.classList.remove('active-page-section'); });
+    if(pages[pageId]) pages[pageId].classList.add('active-page-section');
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute('data-page');
+      if(linkPage === pageId) link.classList.add('active-page');
+      else link.classList.remove('active-page');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pageId = link.getAttribute('data-page');
+      if(pageId && pages[pageId]) showPage(pageId);
+    });
+  });
+
+  // Application form handling (simulated submission)
+  const form = document.getElementById('admissionForm');
+  const feedbackDiv = document.getElementById('formFeedback');
+
+  if(form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName')?.value.trim();
+      const parentName = document.getElementById('parentName')?.value.trim();
+      const phone = document.getElementById('phone')?.value.trim();
+      const grade = document.getElementById('grade')?.value;
+
+      if(!fullName || !parentName || !phone || !grade) {
+        feedbackDiv.textContent = '❌ Please fill all required fields (Name, Parent, Phone, Grade).';
+        feedbackDiv.className = 'submit-message error';
+        setTimeout(() => { feedbackDiv.style.display = 'none'; feedbackDiv.className = 'submit-message'; }, 4000);
+        feedbackDiv.style.display = 'block';
+        return;
+      }
+      if(phone.length < 9) {
+        feedbackDiv.textContent = '⚠️ Please enter a valid phone number (e.g., 0768844641).';
+        feedbackDiv.className = 'submit-message error';
+        feedbackDiv.style.display = 'block';
+        setTimeout(() => { feedbackDiv.style.display = 'none'; }, 4000);
+        return;
+      }
+
+      // success simulation
+      feedbackDiv.innerHTML = `✅ Thank you ${fullName}! Your application for ${grade} has been received. Our team at Alexander International School will contact you via ${phone} within 48 hours.`;
+      feedbackDiv.className = 'submit-message success';
+      feedbackDiv.style.display = 'block';
+      form.reset();
+      setTimeout(() => { feedbackDiv.style.display = 'none'; }, 6000);
+    });
+  }
+
+  // Default home
+  if(!window.location.hash) showPage('home');
+</script>
+</body>
+</html>
